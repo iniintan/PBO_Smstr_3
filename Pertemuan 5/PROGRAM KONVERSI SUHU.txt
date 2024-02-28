@@ -1,0 +1,32 @@
+# membuat aplikasi konverter celcius
+
+from tkinter import *
+
+# main window 
+root=Tk()
+root.title('konverter celcius')
+
+# membuat fungsi
+def konversi():
+    nilai=int(suhu_awal.get())
+    reamur=(4/5)*nilai
+    kelvin=nilai+273
+    fahrenheit=((9/5)*nilai)+32
+    teks_hasil=f"nilai suhu dalam reamur = {reamur}\nnilai suhu dalam kelvin = {kelvin}\nnilai suhu dalam fahrenheit = {fahrenheit}"
+    hasil['text']=teks_hasil
+
+
+# membuat widget yang digunakan
+judul=Label(root,text='Aplikasi konverter celcius', font=('arial bold',15)).pack(padx=5,pady=5)
+frame1=LabelFrame(root,text="masukkan suhu dalam celcius", font=('bold',12))
+frame1.pack(padx=5,pady=2)
+suhu_awal=Entry(frame1,bg='white',width=25)
+suhu_awal.pack(pady=2)
+tombol=Button(frame1,text="konversikan",command=konversi).pack(pady=2)
+frame2=LabelFrame(root,text="Hasil konversi", font=('bold',12))
+frame2.pack(padx=5,pady=2)
+hasil=Label(frame2)
+hasil.pack(pady=2)
+
+#looping program
+root.mainloop()
